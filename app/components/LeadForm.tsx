@@ -37,27 +37,52 @@ export default function LeadForm() {
     e.preventDefault()
     setIsSubmitting(true)
 
-    // Simulation d'envoi (à remplacer par votre API)
-    await new Promise(resolve => setTimeout(resolve, 2000))
-
-    console.log('Form data:', formData)
-    
-    setIsSubmitting(false)
-    setSubmitted(true)
-
-    // Reset après 5 secondes
-    setTimeout(() => {
-      setSubmitted(false)
-      setFormData({
-        nom: '',
-        email: '',
-        telephone: '',
-        entreprise: '',
-        taille: '',
-        solution: '',
-        message: '',
+    try {
+      // ✅ ENVOYER À FORMSPREE
+      const response = await fetch('https://formspree.io/f/xjggozay', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          nom_complet: formData.nom,
+          email: formData.email,
+          telephone: formData.telephone,
+          entreprise: formData.entreprise,
+          taille_entreprise: formData.taille,
+          solution_actuelle: formData.solution,
+          message: formData.message,
+          date_soumission: new Date().toISOString(),
+        }),
       })
-    }, 5000)
+
+      if (response.ok) {
+        // ✅ SUCCÈS !
+        console.log('Lead envoyé avec succès!')
+        setSubmitted(true)
+
+        // Réinitialiser après 5 secondes
+        setTimeout(() => {
+          setSubmitted(false)
+          setFormData({
+            nom: '',
+            email: '',
+            telephone: '',
+            entreprise: '',
+            taille: '',
+            solution: '',
+            message: '',
+          })
+        }, 5000)
+      } else {
+        alert('Erreur lors de l\'envoi. Veuillez réessayer.')
+      }
+    } catch (error) {
+      console.error('Erreur:', error)
+      alert('Erreur de connexion. Veuillez réessayer.')
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
