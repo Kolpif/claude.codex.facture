@@ -16,13 +16,13 @@ export default function ContactPage() {
     {
       icon: Phone,
       label: 'Téléphone',
-      value: '01 23 45 67 89',
-      link: 'tel:+33123456789',
+      value: '01 88 81 22 27',
+      link: 'tel:+33188812227',
     },
     {
       icon: MapPin,
       label: 'Adresse',
-      value: 'Paris, France',
+      value: '25 rue Tronchet 75008 Paris',
       link: null,
     },
     {
@@ -172,11 +172,11 @@ export default function ContactPage() {
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-4">
               <a
-                href="tel:+33123456789"
+                href="tel:+33188812227"
                 className="inline-flex items-center justify-center px-8 py-4 bg-white text-primary-600 font-semibold rounded-lg hover:bg-gray-100 transition-all shadow-lg"
               >
                 <Phone className="mr-2 h-5 w-5" />
-                01 23 45 67 89
+                01 88 81 22 27
               </a>
               <a
                 href="mailto:contact@facturepro.fr"

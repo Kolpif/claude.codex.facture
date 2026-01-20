@@ -74,13 +74,13 @@ export default function Footer() {
               </li>
               <li className="flex items-start space-x-2">
                 <Phone className="h-5 w-5 text-primary-400 flex-shrink-0 mt-0.5" />
-                <a href="tel:+33123456789" className="hover:text-primary-400 transition-colors">
-                  01 23 45 67 89
+                <a href="tel:+33188812227" className="hover:text-primary-400 transition-colors">
+                  01 88 81 22 27
                 </a>
               </li>
               <li className="flex items-start space-x-2">
                 <MapPin className="h-5 w-5 text-primary-400 flex-shrink-0 mt-0.5" />
-                <span>Paris, France</span>
+                <span>25 rue Tronchet 75008 Paris</span>
               </li>
             </ul>
           </div>
@@ -89,9 +89,12 @@ export default function Footer() {
         {/* Bottom Bar */}
         <div className="mt-12 pt-8 border-t border-navy-800">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-            <p className="text-sm text-gray-400">
-              © {currentYear} Facture Pro Conseil. Tous droits réservés.
-            </p>
+            <div className="text-sm text-gray-400">
+              <p>© {currentYear} Facture Pro Conseil. Tous droits réservés.</p>
+              <p className="text-xs text-gray-500">
+                Adresse: 25 rue Tronchet 75008 Paris • SIRET: 979 507 639 • Capital social: 3000 euros
+              </p>
+            </div>
             <div className="flex space-x-6 text-sm">
               <Link href="/mentions-legales" className="hover:text-primary-400 transition-colors">
                 Mentions légales
